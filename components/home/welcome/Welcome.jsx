@@ -41,7 +41,13 @@ const Welcome = () => {
         <FlatList
           data={jobTypes}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.tab(activeJobType, item)} onPress={() => setActivejobType(item)}>
+            <TouchableOpacity
+              style={styles.tab(activeJobType, item)}
+              onPress={() => {
+                setActivejobType(item);
+                router.push(`/search/${item}`)
+              }}
+            >
               <Text>{item}</Text>
             </TouchableOpacity>
           )}
